@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "169099531492",
+    "project_id": "assign4-hasanashraf-1fd54",
+    "storage_bucket": "assign4-hasanashraf-1fd54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169099531492:android:27cb3c2957d7b8fa6048f1",
+        "android_client_info": {
+          "package_name": "com.example.sdaassign4_2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "169099531492-d6svk7vhvstc3mg2kqh3uh9t06oblgvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyNCcrsteHGCGp1jvvqDqCd9q5piKerTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "169099531492-d6svk7vhvstc3mg2kqh3uh9t06oblgvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
