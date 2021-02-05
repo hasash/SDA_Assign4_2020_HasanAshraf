@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "169099531492",
-    "project_id": "assign4-hasanashraf-1fd54",
-    "storage_bucket": "assign4-hasanashraf-1fd54.appspot.com"
+    "project_number": "566395916154",
+    "project_id": "sda-assign42020",
+    "storage_bucket": "sda-assign42020.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:169099531492:android:27cb3c2957d7b8fa6048f1",
+        "mobilesdk_app_id": "1:566395916154:android:39ff6d02d1ae716baad0c3",
         "android_client_info": {
           "package_name": "com.example.sdaassign4_2020"
         }
       },
       "oauth_client": [
         {
-          "client_id": "169099531492-d6svk7vhvstc3mg2kqh3uh9t06oblgvh.apps.googleusercontent.com",
+          "client_id": "566395916154-5nu20lq36o1sde82s7kerd9omt7ljcmt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sdaassign4_2020",
+            "certificate_hash": "70d853d249828d4ab5a3948c6e4503db6300518e"
+          }
+        },
+        {
+          "client_id": "566395916154-ba571ggknemuu7uh7vc8u5dgqjh271nf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDyNCcrsteHGCGp1jvvqDqCd9q5piKerTE"
+          "current_key": "AIzaSyDvqfjRSF02biNhoRs-0E9X2VMBxYX6BfU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "169099531492-d6svk7vhvstc3mg2kqh3uh9t06oblgvh.apps.googleusercontent.com",
+              "client_id": "566395916154-ba571ggknemuu7uh7vc8u5dgqjh271nf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

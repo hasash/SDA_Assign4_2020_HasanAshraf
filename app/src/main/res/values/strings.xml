@@ -10,4 +10,12 @@
     <string name="border">border item</string>
     <string name="check_out">Check Out</string>
     <string name="library">library</string>
+    <string name="clear">Reset/Clear</string>
+    <string name="save">Save Details</string>
+    <string name="email">Email address</string>
+    <string name="borrowerid">Borrower ID</string>
+    <string name="borrowername">User Name</string>
+
+
+
 </resources>

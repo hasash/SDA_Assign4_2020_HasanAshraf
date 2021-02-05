@@ -28,6 +28,8 @@ public class CheckOut extends AppCompatActivity {
 
         //find the summary textview
         mDisplaySummary = findViewById(R.id.orderSummary);
+
+        //getActivity().onBackPressed();
     }
 
     //source SDA_2019 android course examples ViewGroup demo
