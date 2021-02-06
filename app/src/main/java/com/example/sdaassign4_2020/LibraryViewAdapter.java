@@ -17,6 +17,7 @@ package com.example.sdaassign4_2020;
          */
 
         import android.content.Context;
+        import android.content.Intent;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -29,6 +30,8 @@ package com.example.sdaassign4_2020;
         import androidx.recyclerview.widget.RecyclerView;
 
         import com.bumptech.glide.Glide;
+        import com.firebase.ui.database.FirebaseRecyclerAdapter;
+        import com.firebase.ui.database.FirebaseRecyclerOptions;
 
         import java.util.List;
 
@@ -36,22 +39,56 @@ package com.example.sdaassign4_2020;
 /*
  * @author Hasan Ashraf 2020
  */
-public class LibraryViewAdapter extends RecyclerView.Adapter<LibraryViewAdapter.ViewHolder> {
-    List<BookDetails> bookdetail;
-    Context mContext;
-
-    LibraryViewAdapter(List<BookDetails> bookdetail, Context mContext) {
-        this.mContext = mContext;
-        this.bookdetail = bookdetail;
+public class LibraryViewAdapter extends FirebaseRecyclerAdapter<BookDetails,LibraryViewAdapter.ViewHolder> {
+    //List<BookDetails> bookdetail;
+    //Context mContext;
+    //public void startListening() {
+   // }
+    Button Sendbtn;
+    public LibraryViewAdapter(FirebaseRecyclerOptions<BookDetails> options) {
+        //this.mContext = mContext;
+        //this.bookdetail = bookdetail;
+        super(options);
 
     }
-
+    @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_list_item, viewGroup, false);
+
+/*
+        Sendbtn = view.findViewById(R.id.out_button);
+        Sendbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getContext().mNewContext, mTitle.get(position), Toast.LENGTH_SHORT).show();
+                //...
+                Intent myOrder = new Intent(CheckOut.class);
+                startActivity(myOrder);
+
+            }
+        });
+        
+ */
         return new ViewHolder(view);
     }
 
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
+    @Override
+    protected void onBindViewHolder(@NonNull final ViewHolder holder, int position, @NonNull BookDetails model) {
+        //Log.d(TAG, "onBindViewHolder: was called");
+        holder.authortext.setText(model.getAuthor());
+        holder.titleText.setText(model.getTitle());
+        //holder.authorText.setText(model.);
+        //BookDetails bookdets= bookdetail.get(position);
+        Glide.with(holder.imageItem.getContext())
+                .load(model.getImageUrl())
+                .into(holder.imageItem);
+
+
+
+
+    }
+/*
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position, Bookdetails) {
         //Log.d(TAG, "onBindViewHolder: was called");
 
         BookDetails bookdets= bookdetail.get(position);
@@ -63,15 +100,24 @@ public class LibraryViewAdapter extends RecyclerView.Adapter<LibraryViewAdapter.
         viewHolder.titleText.setText(bookdets.getTitle());
     }
 
+
+ */
+
+/*
     @Override
     public int getItemCount() {
         return bookdetail.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+ */
+
+
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageItem;
-        TextView authorText;
+        TextView authortext;
         TextView titleText;
         Button checkOut;
         RelativeLayout itemParentLayout;
@@ -81,14 +127,20 @@ public class LibraryViewAdapter extends RecyclerView.Adapter<LibraryViewAdapter.
 
             //grab the image, the text and the layout id's
             imageItem = itemView.findViewById(R.id.bookImage);
-            authorText = itemView.findViewById(R.id.authorText);
+            authortext = itemView.findViewById(R.id.authText);
             titleText = itemView.findViewById(R.id.bookTitle);
             checkOut = itemView.findViewById(R.id.out_button);
             itemParentLayout = itemView.findViewById(R.id.listItemLayout);
 
         }
+
+
+    }
+    /*public void stopListening() {
     }
 
+
+     */
     //private static final String TAG = "RecyclerViewAdapter";
     //private Context mNewContext;
 

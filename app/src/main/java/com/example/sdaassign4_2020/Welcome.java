@@ -28,18 +28,9 @@ public class Welcome extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View root = inflater.inflate(R.layout.fragment_welcome, container, false);
-        Button checkOut;
-        checkOut = root.findViewById(R.id.out_button);
 
-        checkOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                //Toast.makeText(getContext().mNewContext, mTitle.get(position), Toast.LENGTH_SHORT).show();
-                //...
-                Intent myOrder = new Intent (getActivity(),CheckOut.class);
-                startActivity(myOrder);
-            }
-        });
+
+
         return root;
     }
 

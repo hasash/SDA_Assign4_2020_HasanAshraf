@@ -4,11 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
@@ -16,12 +24,15 @@ public class CheckOut extends AppCompatActivity {
 
     TextView mDisplaySummary;
     Calendar mDateAndTime = Calendar.getInstance();
+    FirebaseDatabase Node;
+    DatabaseReference refer;
+    Button sendbut;
+    private static final String TAG = "CheckOut";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
-
         //set the toolbar we have overridden
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -30,6 +41,26 @@ public class CheckOut extends AppCompatActivity {
         mDisplaySummary = findViewById(R.id.orderSummary);
 
         //getActivity().onBackPressed();
+
+        sendbut = findViewById(R.id.orderButton);
+
+        sendbut.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "test3 ");
+                Node = FirebaseDatabase.getInstance();
+                refer = Node.getReference("books");
+
+                refer.setValue("Data Storage");
+            }
+        });
+        /*
+
+
+         */
+
+
     }
 
     //source SDA_2019 android course examples ViewGroup demo

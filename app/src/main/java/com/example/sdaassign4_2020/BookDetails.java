@@ -1,33 +1,24 @@
 package com.example.sdaassign4_2020;
 
 public class BookDetails {
-    public String Author;
-    public String Title;
+    public String author;
+    public String title;
     public String imageUrl;
 
-    public BookDetails(){
-    }
-
-    public BookDetails(String Author, String Title, String imageUrl) {
-        this.Author = Author;
-        this.Title = Title;
-        this.imageUrl = imageUrl;
-    }
-
     public String getAuthor() {
-        return Author;
+        return author;
     }
 
-    public void setAuthor(String Author) {
-        this.Author = Author;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
-    public void setTitle(String Title) {
-        this.Title = Title;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getImageUrl() {
@@ -37,4 +28,19 @@ public class BookDetails {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public BookDetails(String author, String title, String imageUrl) {
+        this.author = author;
+        this.title = title;
+        this.imageUrl = imageUrl;
+    }
+
+
+
+    public BookDetails(){
+    }
+
+
+
+
 }

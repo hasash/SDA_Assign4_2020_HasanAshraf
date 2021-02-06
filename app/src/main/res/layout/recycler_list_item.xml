@@ -13,14 +13,14 @@
         android:src="@drawable/sku10001" />
 
     <TextView
-        android:id="@+id/authorText"
+        android:id="@+id/authText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/bookImage"
         android:layout_marginStart="16dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/bookImage"
-        android:text="@string/plc_author"
+        android:text="@string/plc_authortxt"
         android:textAlignment="textStart"
         android:textColor="@color/listText"
         android:textSize="17sp" />
@@ -29,7 +29,7 @@
         android:id="@+id/bookTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/authorText"
+        android:layout_below="@+id/authText"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_toEndOf="@+id/bookImage"

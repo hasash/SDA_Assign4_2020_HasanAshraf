@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("books");
+        //databaseReference = FirebaseDatabase.getInstance().getReference("books");
 
-        Toast.makeText(MainActivity.this, "Firebase Connection Sucess", Toast. LENGTH_LONG).show();
+        //Toast.makeText(MainActivity.this, "Firebase Connection Sucess", Toast. LENGTH_LONG).show();
 
         //set the toolbar we have overridden
         Toolbar toolbar = findViewById(R.id.toolbar);

@@ -1,6 +1,7 @@
 package com.example.sdaassign4_2020;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -14,9 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,12 +49,14 @@ import java.util.Objects;
 public class BookList extends Fragment {
 
     //RecyclerView rv;
-    List<BookDetails> bookdetail;
+    //List<BookDetails> bookdetail;
     DatabaseReference databaseReference;
+    LibraryViewAdapter adapter;
+    Button checkOut;
 
-    public BookList() {
+    //public BookList() {
         // Required empty public constructor
-    }
+    //}
 
     //ViewPageAdapter adapter;
 
@@ -64,17 +69,27 @@ public class BookList extends Fragment {
         RecyclerView recyclerView = root.findViewById(R.id.bookView_view);
 
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        DividerItemDecoration decoration = new DividerItemDecoration(this.getContext(), DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(decoration);
-        bookdetail = new ArrayList<>();
-        databaseReference = FirebaseDatabase.getInstance().getReference("books");
-        getImageData(recyclerView);
+        //recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        LibraryViewAdapter adapter = new LibraryViewAdapter(bookdetail,getContext());
+        FirebaseRecyclerOptions<BookDetails> options =
+                new FirebaseRecyclerOptions.Builder<BookDetails>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("books"), BookDetails.class)
+                        .build();
+
+        adapter = new LibraryViewAdapter(options);
         recyclerView.setAdapter(adapter);
+
+        //DividerItemDecoration decoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
+        //recyclerView.addItemDecoration(decoration);
+        //bookdetail = new ArrayList<>();
+        //databaseReference = FirebaseDatabase.getInstance().getReference("books");
+        //getImageData(recyclerView);
+
+
         //adapter.notifyDataSetChanged();
+
+        //adapter.startListening();
 
         //RecyclerView.setAdapter(adapter);
 
@@ -82,6 +97,25 @@ public class BookList extends Fragment {
         return root;
     }
 
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (adapter != null) {
+            adapter.startListening();
+        }
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (adapter != null) {
+            adapter.stopListening();
+        }
+
+    }
+    /*
     private void getImageData(final RecyclerView recyclerView) {
     databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
         @Override
@@ -99,7 +133,12 @@ public class BookList extends Fragment {
 
         }
     });
+
+
     }
+  */
+
+
 }
 
 /*
