@@ -3,20 +3,14 @@ package com.example.sdaassign4_2020;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
+
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
-import com.google.firebase.FirebaseApp;
+import android.view.View;
+import android.widget.Button;
+
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FileDownloadTask;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.ListResult;
-import com.google.firebase.storage.OnPausedListener;
-import com.google.firebase.storage.OnProgressListener;
-import com.google.firebase.storage.StorageException;
-import com.google.firebase.storage.StorageMetadata;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -49,7 +43,26 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
+
     }
+public void ordersnd (View view){
+    //Button Sendbtn = findViewById(R.id.out_button);
+    //Sendbtn.setOnClickListener(new View.OnClickListener() {
+        //@Override
+      //  public void onClick(View v) {
+            //Toast.makeText(getContext().mNewContext, mTitle.get(position), Toast.LENGTH_SHORT).show();
+            //...
+            Intent myOrder = new Intent(MainActivity.this, CheckOut.class);
+            startActivity(myOrder);
+
+        }
+
+
+    //});
+
+
+
+
 
 }
 

@@ -6,19 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import android.app.Activity;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
 
-import java.util.Random;
-
-/*
- * viewPager adapter.
- * @author Chris Coughlan 2019
+/**
+ * viewPager adapter. used to create the tabbed layout for the application
+ * @author Hasan Ashraf
  */
 public class ViewPageAdapter extends FragmentPagerAdapter {
 
@@ -29,6 +20,9 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
         context = nContext;
     }
 
+    /*
+     * Fragment method used to call the position of the tab that is selected from the main UI
+     */
     @NonNull
     @Override
     public Fragment getItem(int position) {
@@ -58,11 +52,19 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
         return fragment;
     }
 
+    /*
+     * The number of tabs that are called out are referenced in the getCount function
+     */
     @Override
     public int getCount() {
         return 3;
     }
 
+    /*
+     * Setting the header on the tabbed layout present in the user interface
+     * @param position
+     * @return tabtitle
+     */
     @Override
     public CharSequence getPageTitle(int position) {
         position = position+1;
@@ -74,7 +76,7 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
         {
             case 1:
                 //code
-                tabTitle = "HOME";
+                tabTitle = "Home";
                 break;
             case 2:
                 //code

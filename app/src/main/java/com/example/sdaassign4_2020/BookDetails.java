@@ -1,9 +1,34 @@
 package com.example.sdaassign4_2020;
-
+/*
+ * Model file used to call the content saved in the firebase database
+ * @param Author, Title, Image, Availability
+ * @return getter and setter to call upon content of database
+ */
 public class BookDetails {
     public String author;
     public String title;
     public String imageUrl;
+    public String stock;
+
+    public BookDetails(String author, String title, String imageUrl) {
+        this.author = author;
+        this.title = title;
+        this.imageUrl = imageUrl;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
+
+
+    public BookDetails(String stock) {
+        this.stock = stock;
+    }
 
     public String getAuthor() {
         return author;
@@ -29,18 +54,8 @@ public class BookDetails {
         this.imageUrl = imageUrl;
     }
 
-    public BookDetails(String author, String title, String imageUrl) {
-        this.author = author;
-        this.title = title;
-        this.imageUrl = imageUrl;
-    }
-
-
 
     public BookDetails(){
     }
-
-
-
 
 }

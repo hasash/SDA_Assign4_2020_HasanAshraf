@@ -8,9 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -19,16 +17,29 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
+import java.util.List;
 
+/*
+ * Activity call on variables stored in Settings Tab Preferences and BookList Details Stored in the Firebase Database
+ * @param Borrowid, borrowusername, emailid
+ */
 public class CheckOut extends AppCompatActivity {
 
-    TextView mDisplaySummary;
+    TextView mDisplaySummary, mbookselected, mdate, mavailability;
     Calendar mDateAndTime = Calendar.getInstance();
     FirebaseDatabase Node;
     DatabaseReference refer;
     Button sendbut;
+    BookDetails modeldata;
+    List<BookDetails> checkdetails;
+    DatabaseReference databaseReference;
+    CheckOutAdapter adapter;
+
     private static final String TAG = "CheckOut";
 
+    /*
+     * OnCreate Methods call upon the xml file for the checout tab
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +51,58 @@ public class CheckOut extends AppCompatActivity {
         //find the summary textview
         mDisplaySummary = findViewById(R.id.orderSummary);
 
+        mbookselected = findViewById(R.id.confirm);
+        mdate = findViewById(R.id.date);
+        mavailability = findViewById(R.id.availability);
+
+        Intent intent = getIntent();
+        String text= intent.getStringExtra("bookdetailsss");
+
+        //t = (TextView) findViewById(R.id.abusedOrNah);
+        mbookselected.setText(text);
+
+        //mbookselected.getText(BookList);
+/*
+        // Get a reference to our posts
+        databaseReference = FirebaseDatabase.getInstance().getReference("books");
+
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                BookDetails newPost = dataSnapshot.getValue(BookDetails.class);
+                mbookselected.setText(newPost.getAuthor());
+                mavailability.setText(newPost.getStock());
+                String availability = mbookselected.toString();
+                //System.out.println("Author: " + newPost.author);
+                //System.out.println("Title: " + newPost.title);
+                ///System.out.println("Previous Post ID: " + prevChildKey);
+                if (availability.equals("yes")){
+                    sendbut.setEnabled(true);
+                    mdate.setEnabled(false);
+                    Log.d(TAG, "test11 ");
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {}
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+
+
+
+ */
+
+        //mbookselected.setText(getText(BookList.class));
+        //mbookselected.setText("Book Selected is: " + );
+
         //getActivity().onBackPressed();
 
         sendbut = findViewById(R.id.orderButton);
@@ -50,19 +113,64 @@ public class CheckOut extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d(TAG, "test3 ");
                 Node = FirebaseDatabase.getInstance();
-                refer = Node.getReference("books");
+                refer = Node.getReference("borrower");
 
-                refer.setValue("Data Storage");
+                // Default used to prove the upload to firebase database works
+                String requireddate = "15/12/2021";
+                String currentdate = "7/2/2021";
+                String currenttime = "8:46";
+                String bookname = "Book Name 1";
+                String borrowerid =  "465";
+
+                /*
+                //Collect the values from text fields and use the commands to upload to the firebase database
+                String requireddate = mavailability.getEditText.getText().toString();
+                String currentdate = mavailability.getEditText.getText().toString();
+                String currenttime = mavailability.getEditText.getText().toString();
+                String bookname = mavailability.getEditText.getText().toString();
+                String borrowerid = mavailability.getEditText.getText().toString();
+*/
+
+                // Pass in all the values that are taken form the fields
+                BorrowerInfo upload = new BorrowerInfo(requireddate,currentdate,currenttime,bookname,borrowerid);
+
+                refer.child(borrowerid).setValue(upload);
             }
         });
-        /*
-
-
-         */
-
 
     }
+    /*
+    private TextWatcher loginTextWatcher = new TextWatcher() {
+        /**
+         * TextWatcher user to Call out the delivery address field and check if its is populated or not
+         *
 
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            //String availability = mbookselected.getText().toString();
+
+            if (availability.equals("yes")){
+                sendbut.setEnabled(true);
+                mdate.setEnabled(false);
+                Log.d(TAG, "test11 ");
+            }
+            else{
+                sendbut.setEnabled(false);
+                mdate.setEnabled(true);
+                Log.d(TAG, "test12 ");
+                //ordertype = 1;
+            }
+        }
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+    };
+
+*/
     //source SDA_2019 android course examples ViewGroup demo
     public void onDateClicked(View v) {
 
@@ -90,4 +198,33 @@ public class CheckOut extends AppCompatActivity {
         String finalSummary = SelectedDate + " current time is " + currentTime;
         mDisplaySummary.setText(finalSummary);
     }
+
+    /*
+     * OnStart activity to call up on the library view adapter everytime the book tab is clicked
+     */
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (adapter != null) {
+            //adapter.startListening();
+        }
+
+    }
+
+    /*
+     * OnStop Activity to pull information from the adapter when the a different tab is selected in the fragment layout
+     */
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (adapter != null) {
+            //adapter.stopListening();
+        }
+
+    }
+    // Methods
+    public void booklisthome (View view){
+        finish();
+    }
+
 }
