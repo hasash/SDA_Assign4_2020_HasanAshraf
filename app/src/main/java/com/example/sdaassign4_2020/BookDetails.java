@@ -1,8 +1,10 @@
 package com.example.sdaassign4_2020;
-/*
+/**
  * Model file used to call the content saved in the firebase database
- * @param Author, Title, Image, Availability
+ * @param   @Author, Title, Image, Availability;
  * @return getter and setter to call upon content of database
+ * @author Hasan Ashraf
+ * Constructor, Getter and Setter Created for each field that is called upon from the database
  */
 public class BookDetails {
     public String author;

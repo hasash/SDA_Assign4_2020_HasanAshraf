@@ -15,7 +15,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
 /**
- * Images used are sourced from Fireabse Realtime Database.
+ * Images used are sourced from Firebase Realtime Database.
  * A simple {@link Fragment} subclass.
  * @author Hasan Ashraf
  */
@@ -28,14 +28,12 @@ public class BookList extends Fragment {
     //Button checkOut;
     Context mcontext;
 
-    /*
-     * Empty Constructor used to call upon the BookList Class
-     */
     public BookList() {
+        //Empty Constructor used to call upon the BookList Class
     }
 
-    /*
-     *OnCreate method that inflatrates the view based on the recycler view that is created
+    /**
+     * OnCreate method that inflates the view based on the recycler view that is created
      * @return root
      */
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,20 +47,18 @@ public class BookList extends Fragment {
         //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        // Firebase Recycler View is called and used to populate the fragment
         FirebaseRecyclerOptions<BookDetails> options =
                 new FirebaseRecyclerOptions.Builder<BookDetails>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("books"), BookDetails.class)
                         .build();
-
-
-
 
         adapter = new LibraryViewAdapter(options,mcontext);
         recyclerView.setAdapter(adapter);
         return root;
     }
 
-    /*
+    /**
      * OnStart activity to call up on the library view adapter everytime the book tab is clicked
      */
     @Override
@@ -74,7 +70,7 @@ public class BookList extends Fragment {
 
     }
 
-    /*
+    /**
      * OnStop Activity to pull information from the adapter when the a different tab is selected in the fragment layout
      */
     @Override

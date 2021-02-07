@@ -9,4 +9,5 @@
     <color name="border_shade">#2A000000</color>
     <color name="listText">#000000</color>
     <color name="tabSelect">#FFFFFF</color>
+    <color name="interfacebackground">#b0c4de</color>
 </resources>

@@ -1,5 +1,10 @@
 package com.example.sdaassign4_2020;
 
+/**
+ * Data to be sent to the firebase Storage, sent through a model class
+ * Constructor, Getter and Setters are used to get variables in activities
+ * @author Hasan Ashraf
+ */
 public class BorrowerInfo {
     String requireddate, currentdate, currenttime, bookname, bookid;
 

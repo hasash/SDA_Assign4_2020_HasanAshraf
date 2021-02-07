@@ -19,9 +19,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Calendar;
 import java.util.List;
 
-/*
+/**
  * Activity call on variables stored in Settings Tab Preferences and BookList Details Stored in the Firebase Database
- * @param Borrowid, borrowusername, emailid
+ * @param @Borrowid, borrowusername, emailid;
+ * @author Hasan Ashraf
  */
 public class CheckOut extends AppCompatActivity {
 
@@ -33,12 +34,12 @@ public class CheckOut extends AppCompatActivity {
     BookDetails modeldata;
     List<BookDetails> checkdetails;
     DatabaseReference databaseReference;
-    CheckOutAdapter adapter;
+    Available adapter;
 
     private static final String TAG = "CheckOut";
 
-    /*
-     * OnCreate Methods call upon the xml file for the checout tab
+    /**
+     * OnCreate Methods call upon the xml file for the checkout tab
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +56,14 @@ public class CheckOut extends AppCompatActivity {
         mdate = findViewById(R.id.date);
         mavailability = findViewById(R.id.availability);
 
+        // Intent used to call the location where the stock information is to be stored
         Intent intent = getIntent();
         String text= intent.getStringExtra("bookdetailsss");
 
-        //t = (TextView) findViewById(R.id.abusedOrNah);
         mbookselected.setText(text);
 
-        //mbookselected.getText(BookList);
+        // Command to be used to Check if the the book selected is available and can be booked for a certain date in the furture
+        // Command lines commented as cant call upon the bookname from the right recycler view option
 /*
         // Get a reference to our posts
         databaseReference = FirebaseDatabase.getInstance().getReference("books");
@@ -171,6 +173,11 @@ public class CheckOut extends AppCompatActivity {
     };
 
 */
+
+    /**
+     * Calender popup open upon calling the function
+     * @param v
+     */
     //source SDA_2019 android course examples ViewGroup demo
     public void onDateClicked(View v) {
 
@@ -191,6 +198,9 @@ public class CheckOut extends AppCompatActivity {
 
     }
 
+    /**
+     * Date and time field updated from the user selection and posted to the textview available
+     */
     private void updateDateAndTimeDisplay() {
         //date time year
         CharSequence currentTime = DateUtils.formatDateTime(this, mDateAndTime.getTimeInMillis(), DateUtils.FORMAT_SHOW_TIME);
@@ -199,7 +209,7 @@ public class CheckOut extends AppCompatActivity {
         mDisplaySummary.setText(finalSummary);
     }
 
-    /*
+    /**
      * OnStart activity to call up on the library view adapter everytime the book tab is clicked
      */
     @Override
@@ -211,7 +221,7 @@ public class CheckOut extends AppCompatActivity {
 
     }
 
-    /*
+    /**
      * OnStop Activity to pull information from the adapter when the a different tab is selected in the fragment layout
      */
     @Override
@@ -222,7 +232,7 @@ public class CheckOut extends AppCompatActivity {
         }
 
     }
-    // Methods
+    // Method used to return to the book list home page
     public void booklisthome (View view){
         finish();
     }

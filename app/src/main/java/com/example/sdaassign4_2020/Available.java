@@ -1,6 +1,8 @@
 package com.example.sdaassign4_2020;
-/*
- * model created to call upon the variable saved in the database to count the availability of the books
+/**
+ * Model created to call upon the variable saved in the database to count the availability of the books
+ * Primarily the Stock Availability of the books
+ * @author Hasan Ashraf
  */
 public class Available {
     public String stock;

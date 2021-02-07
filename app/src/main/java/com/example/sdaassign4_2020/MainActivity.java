@@ -14,7 +14,8 @@ import com.google.firebase.database.DatabaseReference;
 
 import com.google.android.material.tabs.TabLayout;
 
-/*
+/**
+ * The cLass used to create the tabbed layout and set he fragment location
  * @author Hasan Ashraf 2020
  */
 public class MainActivity extends AppCompatActivity {
@@ -27,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //databaseReference = FirebaseDatabase.getInstance().getReference("books");
-
-        //Toast.makeText(MainActivity.this, "Firebase Connection Sucess", Toast. LENGTH_LONG).show();
-
         //set the toolbar we have overridden
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -42,27 +39,16 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-
-
     }
-public void ordersnd (View view){
-    //Button Sendbtn = findViewById(R.id.out_button);
-    //Sendbtn.setOnClickListener(new View.OnClickListener() {
-        //@Override
-      //  public void onClick(View v) {
-            //Toast.makeText(getContext().mNewContext, mTitle.get(position), Toast.LENGTH_SHORT).show();
-            //...
+
+    /**
+     * Method Used to open checkout activity from the booklist selection tab
+     * @param view
+     */
+    public void ordersnd (View view){
+
             Intent myOrder = new Intent(MainActivity.this, CheckOut.class);
             startActivity(myOrder);
-
         }
-
-
-    //});
-
-
-
-
-
 }
 

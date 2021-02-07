@@ -18,11 +18,9 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-/*
+/**
  * Adapter Class used to take in recycler view for the content stored in the firebase realtime directory
- * @author Hasan Ashraf 2020
- * @param
- *
+ * @author Hasan Ashraf 2021
  */
 public class LibraryViewAdapter extends FirebaseRecyclerAdapter<BookDetails,LibraryViewAdapter.ViewHolder> {
     //List<BookDetails> bookdetail;
@@ -40,7 +38,7 @@ public class LibraryViewAdapter extends FirebaseRecyclerAdapter<BookDetails,Libr
 
 
     }
-    /*
+    /**
      * On View Holder calls the xml that allows the view to be created inside the fragment that is seleccted
      * @return ViewHolder xml
      */
@@ -50,9 +48,9 @@ public class LibraryViewAdapter extends FirebaseRecyclerAdapter<BookDetails,Libr
         return new ViewHolder(view);
     }
 
-    /*
+    /**
      * On Bind Holder allows the view to be infiltrated with the content saved in the firebase realtime database
-     * @param Viewholder, position, model
+     * @param holder, position, model;
      * @return holder with all the items called from the database
      */
     @Override
@@ -65,6 +63,8 @@ public class LibraryViewAdapter extends FirebaseRecyclerAdapter<BookDetails,Libr
         Glide.with(holder.imageItem.getContext())
                 .load(model.getImageUrl())
                 .into(holder.imageItem);
+
+        // function used to check if the availability of the book can be checked from this method
 /*
         holder.checkOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,8 +88,8 @@ public class LibraryViewAdapter extends FirebaseRecyclerAdapter<BookDetails,Libr
 
 
     }
-    /*
-     * Viewholder call on the position and layout struture of the different fields from the recycler view xml file
+    /**
+     * Viewholder call on the position and layout structure of the different fields from the recycler view xml file
      * @return recycler view
      */
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -112,8 +112,6 @@ public class LibraryViewAdapter extends FirebaseRecyclerAdapter<BookDetails,Libr
             itemParentLayout = itemView.findViewById(R.id.listItemLayout);
             mbookselected = itemView.findViewById(R.id.confirm);
         }
-
-
     }
 }
 

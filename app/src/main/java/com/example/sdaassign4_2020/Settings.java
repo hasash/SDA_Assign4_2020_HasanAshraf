@@ -123,7 +123,9 @@ public class Settings extends Fragment {
     }
 
     /**
-     * Save Data to the shared prefernces to be used when the avticivty is call upon
+     * Save Data to the shared preferences to be used when the mehhod is called using save button
+     * @param @mid, @memail, mmname;
+     * @return TEXTID, TEXTEMAIL, TEXTUSERNAME;
      */
     public void saveData(){
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
@@ -136,6 +138,11 @@ public class Settings extends Fragment {
 
     }
 
+    /**
+     * Data saved upon in the shared prefernces is used to poulate the fields when the app is opened
+     * @param @TEXTID, TEXTEMAIL, TEXTUSERNAME;
+     * @return idtext, emailtext, usernametext;
+     */
     public void loadDate(){
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         idtext = sharedPreferences.getString(TEXTID, "");
@@ -143,6 +150,10 @@ public class Settings extends Fragment {
         usernametext = sharedPreferences.getString(TEXTUSERNAME, "");
 
     }
+
+    /**
+     * Views are updated based on hte loaded data method
+     */
     public void updateview(){
         mid.setText(idtext);
         memail.setText(emailtext);

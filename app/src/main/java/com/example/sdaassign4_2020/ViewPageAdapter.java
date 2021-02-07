@@ -20,7 +20,7 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
         context = nContext;
     }
 
-    /*
+    /**
      * Fragment method used to call the position of the tab that is selected from the main UI
      */
     @NonNull
@@ -52,7 +52,7 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
         return fragment;
     }
 
-    /*
+    /**
      * The number of tabs that are called out are referenced in the getCount function
      */
     @Override

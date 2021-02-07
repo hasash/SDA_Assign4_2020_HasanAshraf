@@ -21,8 +21,12 @@ public class Welcome extends Fragment {
         // Required empty public constructor
     }
 
-    /*
+    /**
      * OnCreate View Inflater command used to set the layout based on the fragment welcome xml
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
