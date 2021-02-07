@@ -9,8 +9,7 @@
         android:id="@+id/bookImage"
         android:layout_width="92dp"
         android:layout_height="129dp"
-        android:contentDescription="@string/images_desc"
-        android:src="@drawable/sku10001" />
+        android:contentDescription="@string/images_desc" />
 
     <TextView
         android:id="@+id/authText"
