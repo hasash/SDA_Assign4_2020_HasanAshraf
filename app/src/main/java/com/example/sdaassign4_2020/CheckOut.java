@@ -20,7 +20,7 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- * Activity call on variables stored in Settings Tab Preferences and BookList Details Stored in the Firebase Database
+ * Activity call on variables stored in UserDatails Tab Preferences and BookList Details Stored in the Firebase Database
  * @param @Borrowid, borrowusername, emailid;
  * @author Hasan Ashraf
  */

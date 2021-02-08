@@ -41,11 +41,11 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
                 break;
             case 2:
                 //code
-                fragment = new BookList();
+                fragment = new UserDetails();
                 break;
             case 3:
                 //code
-                fragment = new Settings();
+                fragment = new BookList();
                 break;
         }
 
@@ -80,11 +80,11 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
                 break;
             case 2:
                 //code
-                tabTitle = "BOOKS";
+                tabTitle = "User";
                 break;
             case 3:
                 //code
-                tabTitle = "SETTINGS";
+                tabTitle = "BOOKS";
                 break;
         }
 

@@ -26,7 +26,7 @@ import static android.content.Context.MODE_PRIVATE;
  * The input for the email field is also checked
  * A simple {@link Fragment} subclass.
  */
-public class Settings extends Fragment {
+public class UserDetails extends Fragment {
 
     //final EditText emailValidate;
     //final static String memail = "";
@@ -43,17 +43,17 @@ public class Settings extends Fragment {
     private String idtext, emailtext, usernametext;
     Button saveButton, clearButton;
 
-    public Settings() {
+    public UserDetails() {
         // Required empty public constructor
     }
 
     /**
      * On Create uses inflater method to call upon the fragment xml file created
      * This displays the variious Edit Text View that is created for the User to input information to
-    */
+     */
     @Override
-   public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                          Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Inflate the layout for this fragment
         final View root = inflater.inflate(R.layout.fragment_settings, container, false);
